@@ -54,7 +54,7 @@ def PrepareData(sc):
     print("将数据分trainData:" + str(trainData.count())+\
              "   validationData:" + str(validationData.count()) +\
              "   testData:" + str(testData.count()))
-    print labelpointRDD.first()
+    print (labelpointRDD.first())
     return (trainData, validationData, testData) 
 
 def PredictData(sc,model): 
@@ -101,12 +101,12 @@ def trainEvaluateModel(trainData,validationData,
                                     maxBins=maxBinsParm)
     accuracy = evaluateModel(model, validationData)
     duration = time() - startTime
-    print    "训练评估：使用参数" + \
+    print ( "训练评估：使用参数" + \
                 " impurityParm= %s"%impurityParm+ \
                 " maxDepthParm= %s"%maxDepthParm+ \
                 " maxBinsParm = %d."%maxBinsParm + \
                  " 所需时间=%d"%duration + \
-                 " 结果accuracy = %f " % accuracy 
+                 " 结果accuracy = %f " % accuracy )
     return (accuracy,duration, impurityParm, maxDepthParm, maxBinsParm,model)
 
 

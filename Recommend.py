@@ -39,23 +39,23 @@ def RecommendMovies(model, movieTitle, inputUserID):
     RecommendMovie = model.recommendProducts(inputUserID, 10) 
     print("针对用户id" + str(inputUserID) + "推荐下列电影:")
     for rmd in RecommendMovie:
-        print  "针对用户id {0} 推荐电影{1} 推荐评分 {2}". \
-            format( rmd[0],movieTitle[rmd[1]],rmd[2])
+        print  ("针对用户id {0} 推荐电影{1} 推荐评分 {2}". \
+            format( rmd[0],movieTitle[rmd[1]],rmd[2]))
 
 def RecommendUsers(model, movieTitle, inputMovieID) :
     RecommendUser = model.recommendUsers(inputMovieID, 10) 
-    print "针对电影 id {0} 电影名:{1}推荐下列用户id:". \
-           format( inputMovieID,movieTitle[inputMovieID])
+    print( "针对电影 id {0} 电影名:{1}推荐下列用户id:". \
+           format( inputMovieID,movieTitle[inputMovieID]))
     for rmd in RecommendUser:
-        print  "针对用户id {0}  推荐评分 {1}".format( rmd[0],rmd[2])
+        print ( "针对用户id {0}  推荐评分 {1}".format( rmd[0],rmd[2]))
 
 
 def loadModel(sc):
     try:        
         model = MatrixFactorizationModel.load(sc, Path+"ALSmodel")
-        print "载入ALSModel模型"
+        print ("载入ALSModel模型")
     except Exception:
-        print "找不到ALSModel模型,请先训练"
+        print ("找不到ALSModel模型,请先训练")
     return model 
 
 
